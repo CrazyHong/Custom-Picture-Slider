@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=" utf-8">
+    <meta name="author" content="http://www.softwhy.com/" />
+    <title>蚂蚁部落</title>
+    <style type="text/css">
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        #main {
+            width: 600px;
+            height: 98px;
+            float: left;
+            border: 1px solid #777;
+            overflow: hidden;
+        }
+
+        #gd {
+            list-style: none outside none;
+            height: 98px;
+            display: block;           
+            position: relative;
+            width: 9999em;
+        }
+
+            #gd li {
+                width: 90px;
+                height: 80px;
+                display: block;
+                float: left;
+                margin: 9px 15px;
+            }
+
+        #box {
+            width: 702px;
+            height: 100px;
+            background: #ccc;
+            margin: 0 auto;
+        }
+
+        #toleft {
+            width: 30px;
+            height: 30px;
+            background: red;
+            margin: 35px 10px;
+            float: left;
+            cursor: pointer;
+        }
+
+        #toright {
+            width: 30px;
+            height: 30px;
+            background: red;
+            margin: 35px 10px;
+            float: left;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var pic_length = $('#gd li').length;
+            var n = 0;
+            $('#toleft').click(function () {
+                if (!$('#gd').is(':animated') && n) {
+                    $('#gd').animate({ left: '+=120px' }, 500);
+                    n--;
+                }
+            });
+            $('#toright').click(function () {
+                if (!$('#gd').is(':animated') && pic_length > n + 5) {
+                    $('#gd').animate({ left: '-=120px' }, 500);
+                    n++;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id="toleft"></div>
+        <div id="main">
+            <ul id="gd">
+                <li style="background:red"></li>
+                <li style="background:orange"></li>
+                <li style="background:green"></li>
+                <li style="background:navy"></li>
+                <li style="background:blue"></li>
+                <li style="background:purple"></li>
+                <li style="background:pink"></li>
+                <li style="background:gray"></li>
+            </ul>
+        </div>
+        <div id="toright"></div>
+    </div>
+</body>
+</html>
